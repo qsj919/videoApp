@@ -26,6 +26,10 @@ export default function Index() {
   })
 
   const [path, setPath] = useState("")
+  const [duration, setDuration] = useState(0)
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const [errMsg, setErrMsg] = useState('')
 
   /** 选择视频 */
   const onUploadClick = () => {
@@ -36,6 +40,10 @@ export default function Index() {
         console.log('视频元信息：',res)
         // uploadVideo(res)
         setPath(res.tempFilePath)
+        setDuration(res.duration)
+        setWidth(res.width)
+        setHeight(res.height)
+        setErrMsg(res.errMsg)
       },
       fail: function(error){
         console.log(error, 'error');
@@ -51,6 +59,11 @@ export default function Index() {
         上传视频
       </View>
       <View>{path}</View>
+      <View>{duration}</View>
+      <View>{width}</View>
+      <View>{height}</View>
+      <View>{height}</View>
+      <View>{errMsg}</View>
     </View>
   )
 }
